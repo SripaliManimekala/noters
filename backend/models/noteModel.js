@@ -12,7 +12,10 @@ const noteSchema = new Schema({
         type: String,
         required: true
     },
-    tags: [String]
+    tags: {
+        type: [String],
+        required: true 
+    }
 }, { timestamps: true })
 
 module.exports = mongoose.model("Note", noteSchema)
