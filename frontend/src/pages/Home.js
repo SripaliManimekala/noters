@@ -1,39 +1,34 @@
-import { useEffect, useState } from "react";
-import { useNotesContext } from "../hooks/useNotesContext"; 
+import {useEffect, useState } from 'react'
 
-//components
-import NoteDetails from "../components/NoteDetails";
-import NoteForm from "../components/NoteForm";
-
+//component
+import NoteDetails from '../components/NoteDetails'
 
 const Home = () => {
-    // const [notes, setNotes] = useState(null)
-    const {notes, dispatch} = useNotesContext()
+    const [notes, setNotes] = useState(null)
 
     useEffect(() => {
-        const fetchNotes = async () => {
-            const response = await fetch('/api/notes')
-            const json = await response.json()
+      const fetchNotes = async () => {
+        const response = await fetch('/api/notes')
+        const json = await response.json()
 
-            if(response.ok){
-                // setNotes(json) no longer need to update local state using this bcz of useworkoutcontext hook
-                dispatch({type:'SET_NOTES', payload: json})//we can dispatch an action with type we need
-            }
+        if (response.ok) {
+          setNotes(json)
         }
+      }
 
-        fetchNotes()
-    }, [dispatch])
+      fetchNotes()
 
-    return ( 
-        <div className="home">
-            <div className="notes">
-                {notes && notes.map((note) => (
-                    <NoteDetails key={ note._id} note={note} />
-                ))}
-            </div>
-            <NoteForm />
+    }, [])
+
+    return (
+      <div className="home">
+        <div className="notes">
+          {notes && notes.map((note)=>(
+            <NoteDetails key={note._id} note={note}/>
+          ))}
         </div>
-     );
-}
- 
-export default Home;
+      </div>
+    )
+  }
+  
+  export default Home
