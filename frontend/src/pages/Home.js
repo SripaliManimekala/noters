@@ -2,6 +2,7 @@ import {useEffect, useState } from 'react'
 
 //component
 import NoteDetails from '../components/NoteDetails'
+import NoteForm from '../components/NoteForm'
 
 const Home = () => {
     const [notes, setNotes] = useState(null)
@@ -27,6 +28,7 @@ const Home = () => {
             <NoteDetails key={note._id} note={note}/>
           ))}
         </div>
+        <NoteForm />
       </div>
     )
   }
