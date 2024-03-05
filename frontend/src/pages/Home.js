@@ -6,7 +6,7 @@ import NoteDetails from '../components/NoteDetails'
 import NoteForm from '../components/NoteForm'
 
 const Home = () => {
-    const {notes, searchResult, dispatch } = useNotesContext()
+    const {notes, searchResult, searching, dispatch } = useNotesContext()
     // const [searching, setSearching] =  useState(false)
 
     useEffect(() => {
@@ -23,12 +23,12 @@ const Home = () => {
 
     }, [])
 
-    // const displayNotes = searching ? searchResult : notes;
+    const displayNotes = searching ? searchResult : notes;
 
     return (
       <div className="home">
         <div className="notes">
-          {searchResult && searchResult.map((note)=>(
+          {displayNotes && displayNotes.map((note)=>(
             <NoteDetails key={note._id} note={note}/>
           ))}
         </div>

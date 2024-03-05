@@ -6,7 +6,8 @@ export const notesReducer = (state, action) => {
   switch (action.type) {
     case 'SET_NOTES':
       return { 
-        notes: action.payload 
+        notes: action.payload,
+        searching: false 
       }
     case 'CREATE_NOTE':
       return { 
@@ -15,7 +16,8 @@ export const notesReducer = (state, action) => {
     case 'SET_SEARCH_RESULT':
       return {
         ...state,
-        searchResult: action.payload
+        searchResult: action.payload,
+        searching: true
       }
     default:
       return state
@@ -25,7 +27,8 @@ export const notesReducer = (state, action) => {
 export const NotesContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(notesReducer, { 
     notes: null,
-    searchResult: null
+    searchResult: null,
+    searching: false
   })
   
   return (
