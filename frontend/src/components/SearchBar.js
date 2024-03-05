@@ -37,6 +37,7 @@ const SeachBar = () => {
                 onChange={(e)=>setQuery(e.target.value)}
             />
             <button onClick={ handleSearch }>Search</button>
+            {error && <div className="error">{error}</div>}
         </div>
     );
 }

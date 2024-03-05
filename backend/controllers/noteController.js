@@ -111,7 +111,12 @@ const searchNote = async (req,res) => {
             ]
         })
 
+        if(note.length===0){
+            return res.status(400).json({error:'No such note -search'}) 
+        }
+
         res.status(200).json(note)
+
 
     } catch(error){
         console.error('Error searching notes:', error);
