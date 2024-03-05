@@ -96,3 +96,25 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+.search-bar {
+  background-color: #ffffff; /* Change the background color to white */
+  border: 1px solid var(--primary); /* Add a border for better visibility */
+  border-radius: 4px; /* Add rounded corners */
+  width: 250px; /* Set a fixed width */
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.search-bar input {
+  border: none;
+  /* height: 100%; */
+  width: 100%; /* Make the input take up the full width of its container */
+  padding: 5px; /* Add some padding for better appearance */
+  font-size: 14px; /* Adjust font size */
+  outline: none; /* Remove the default outline */
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Add spacing between the elements */
+}
