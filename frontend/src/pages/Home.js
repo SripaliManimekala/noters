@@ -1,4 +1,4 @@
-import {useEffect } from 'react'
+import {useEffect, useState } from 'react'
 import { useNotesContext } from "../hooks/useNotesContext"
 
 //component
@@ -6,7 +6,8 @@ import NoteDetails from '../components/NoteDetails'
 import NoteForm from '../components/NoteForm'
 
 const Home = () => {
-    const {notes, dispatch } = useNotesContext()
+    const {notes, searchResult, dispatch } = useNotesContext()
+    // const [searching, setSearching] =  useState(false)
 
     useEffect(() => {
       const fetchNotes = async () => {
@@ -22,10 +23,12 @@ const Home = () => {
 
     }, [])
 
+    // const displayNotes = searching ? searchResult : notes;
+
     return (
       <div className="home">
         <div className="notes">
-          {notes && notes.map((note)=>(
+          {searchResult && searchResult.map((note)=>(
             <NoteDetails key={note._id} note={note}/>
           ))}
         </div>

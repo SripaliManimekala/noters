@@ -14,7 +14,7 @@ export const notesReducer = (state, action) => {
       }
     case 'SET_SEARCH_RESULT':
       return {
-        ...state,//don;t mutate original state
+        ...state,
         searchResult: action.payload
       }
     default:
